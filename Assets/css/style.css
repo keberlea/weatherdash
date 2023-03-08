@@ -1,0 +1,67 @@
+:root{
+    --white: #ffffff ;
+    --blue: #1b76ec;
+    --purple: #560b9c;
+
+ 
+
+}
+
+/* Body */
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+}
+
+/* Header */
+h1 {
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    background: linear-gradient(to right, var(--white), #1b76ec, #560b9c);
+    color: white;
+    padding: 10px 0 10px 0;
+}
+
+hr {
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--purple);
+}
+
+.city-search {
+    margin-left: 15px;
+}
+
+.city-list {
+    margin-left: 15px;
+}
+
+.history-btn {
+    background-color: #8e9aaf;
+    color: white;
+}
+
+.search-btn {
+    background-color: #1e96fc;
+    color: white;
+    margin-top: 5px;
+}
+
+/* Left Navigation/Aside */
+#uv-condition {
+    padding: 2px 15px 2px 15px;
+    border-radius: 5px;
+}
+
+/* uvi index: favorable */
+.green {
+    background-color: #008000;
+    color: white;
+}
+
+/* uvi index: moderate */
+.orange {
+    background-color: #fb8500;
+    color: white;
+}
