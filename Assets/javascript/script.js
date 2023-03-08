@@ -29,7 +29,9 @@ var weatherSearch =  function(cityname){
                 cityList.push(currentData.name);
                 localStorage.setItem("cityList",JSON.stringify(cityList));
                 populateCity();
-                cityResultEl.innerHTML = currentData.name + dayjs().format(MM/DD/YYY) 
+                cityResultEl.innerHTML = currentData.name + dayjs().format(MM/DD/YYY) +
+                `<img class="w-2"
+                src="http://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png" />`;
             })
     })
 
