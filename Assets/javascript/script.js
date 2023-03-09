@@ -1,6 +1,10 @@
 var searchFormEl = document.querySelector(".form");
 var cityInputEl = document.quesrySelector(".city-input")
 var searchButtonEl = document.querySelector(".search-btn");
+var cityResultEl = document.querySelector(".city-result");
+var fiveDayEl = document.querySelector("#fiveDay");
+var searchedCityEl = document.querySelector("#searchedCity");
+
 
 //current forcast variables
 var tempForecastEl = document.querySelector(".temp");
@@ -13,7 +17,7 @@ var cityList = [];
 
 
 //Populate city information
-var weatherSearch =  function(cityname){
+var weatherSearch =  function(cityName){
     var urlCurrentWeather="https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${weatherAPIKey}&units=imperial";
     //fetch current weather
     fetch(urlCurrentWeather)
@@ -24,7 +28,7 @@ var weatherSearch =  function(cityname){
         console.log(currentData);
         var urlOneCall = `https://api.openweathermap.org/data/2.5/onecall?lat=${currentData.coord.lat}&lon=${currentData.coord.lon}&exclude={part}&appid=${weatherAPIKey}&units=imperial`;      
         //fetch current weather
-        fetch(urlCurrentWeather)
+        fetch(urlOneCall)
             .then(function(response){
                 return response.json();
             })
@@ -69,6 +73,7 @@ var citySearch = function () {
     // obtain input from user
     var cityName = cityInputEl.value;
     weatherSearch(cityName);
+    console.log(cityName)
   };
   
   // event listener for the search button click
