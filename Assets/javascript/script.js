@@ -1,8 +1,7 @@
 //search variablesS
-
-var searchFormEl = document.querySelector(".form");
-var cityInputEl = document.getElementById("city-input").value;
-var searchButtonEl = document.querySelector(".search-btn");
+var searchBtn = document.getElementById('searchBtn');
+var cityInputEl = document.getElementById("myInput");
+var searchButtonEl = document.querySelector("#searchBtn");
 var cityResultEl = document.querySelector(".city-result");
 var fiveDayEl = document.querySelector("#fiveDay");
 var searchedCityEl = document.querySelector("#searchedCity");
@@ -13,15 +12,15 @@ var searchedCityEl = document.querySelector("#searchedCity");
 //current forcast variables
 var tempForecastEl = document.querySelector(".temp");
 var windForecastEl = document.querySelector(".wind");
-var humidityForecastEl = document.querySelector(".humidity");
+var humidityForecastEl = document.querySelector(".Humidity");
 var weatherResultsEl = document.querySelector(".weather-results");
 var currentConditionsEl = document.querySelector(".current-condition");
 var cityList = [];
 
 
 // event listener for the search button click
-searchButtonEl.addEventListener("click", citySearch);
-//${'.search-btn'}.on(citySearch)
+searchButtonEl.addEventListener('click', citySearch);
+
 
 // Function to search for a city
 var citySearch = function () {
@@ -32,7 +31,7 @@ var citySearch = function () {
   };
    var countryCode = 'US'
 
-  var geoUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + cityName + "," + countryCode + "&limit=5&appid=7d1b285353ccacd5326159e04cfab063"
+  var geoUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + cityName + "," + countryCode + "&limit=5&appid=9b9d5a244d38b072822e7b010a887234"
   fetch(geoUrl)
     
   //Convert the response into JSON. Lastly, we return the JSON-formatted response, as follows:
@@ -53,7 +52,7 @@ var citySearch = function () {
     }
   });
     
-/*
+
 
 //Populate city information
 var weatherSearch =  function(){
@@ -107,7 +106,6 @@ var weatherSearch =  function(){
         });
     });
 };
-*/
 
 
 

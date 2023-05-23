@@ -1,37 +1,49 @@
-//function to collects user input and displays in search history
-/*html for search btn
+window.onload = function(){
+    
+//fetch("http://api.openweathermap.org/geo/1.0/zip?zip=E14,GB&appid=faf2677a782ebea7b191852771b0d673")
+  //.then((response) => response.json())
+  //.then((data) => console.log(data));
 
-<div class="city-search">
-                    <form id ="search-form" class="form">
-                        <h2>Search for a City:</h2>
-                        <div class = "search-form mb-3">
-                            <input type="text" class="city-input form-control" placeholder="Salem"
-                                aria-label="Salem" aria-describedby="button-addon2">
-                            <button class="btn search-btn btn-outline-secondary w-100" type="button" id="searchbtn">Search</button>
-                            
-                        </div>
-                    </form>
-                </div> */
-
-
-
-//add event listener for search history
-
-/*html for search history
-
-<div class="city-list">
-                    <ul class="list-group" id="searchedCity">
-                        <li class="list-group-item border-0">
-                            <button class="btn history-btn w-100" type="button">
-                            </button>
-                        </li>
-                    </ul>
-                </div> */
-
-
-
-// event listener for search btn
-document.getElementById("searchbtn").addEventListener('click',getResult);
 
 
 //get result function
+
+function getResult(){
+    
+    inputCity = document.getElementById('myInput').value();   
+    var countryCode='US';    
+    var cityCode = inputCity;  
+    var geoLon;   
+    var geoLat;
+
+    var requestUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + cityCode + "," + countryCode + "&limit=5&appid=faf2677a782ebea7b191852771b0d673"
+
+    fetch(requestUrl)
+    .then(function (response){
+        return response.json();
+        
+    })
+    
+    .then(function (data) {
+        //geoLon = data[0].lon;
+        geoLat = data[0].lat;
+
+        var weatherUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + geoLat + "&lon="+ geoLon + "&exclude=minutely,hourly,alerts&units=imperial&appid=faf2677a782ebea7b191852771b0d673"
+       
+        fetch(weatherUrl)
+
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            console.log(data);
+
+
+    })
+})
+}
+}
+
+
+// event listener for search btn
+document.getElementById("#searchbtn").addEventListener('click',getResult);
